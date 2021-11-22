@@ -36,7 +36,13 @@ Next, once in your project directory, you have to build and up the docker contai
 docker-compose up
 ```
 
-Install all the PHP needed packages:
+All the following command lines will have to be typed in the docker container:
+```
+docker-compose exec web bash
+cd /app
+```
+
+Now that you are in he container, install all the PHP needed packages:
 ```
 composer install
 ```
