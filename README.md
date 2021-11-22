@@ -52,14 +52,15 @@ Now it is time to manage the database. Exceptionnaly, the .env.dev is commited, 
 php bin/console d:m:m
 ```
 
-And finally, build je CSS / Js:
+And finally, build the CSS / Js:
 ```
+yarn install
 yarn dev
 ```
 
 # Browsing through the app
 
-The Swagger interface can be found at ```/api/doc```.
+The Swagger interface can be found at ```http://127.0.0.1/api/doc```.
 
-The wab page is located to ```/```.
+The wab page is located to ```http://127.0.0.1```.
 
