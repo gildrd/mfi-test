@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <ul>
+                    {% for peak in peaks %}
+                        <li class="container d-flex">
+                            <div class="col-6">{{ peak.name }}</div>
+                            <div class="col-3"><button class="display-peak btn btn-primary" id="peak-display-{{ peak.id }}">Afficher</button></div>
+                            <div class="col-3">
+                                <button class="display-peak-info btn btn-secondary" id="peak-infos-{{ peak.id }}" type="button"
+                                        data-name="{{ peak.name }}" data-lat="{{ peak.lat }}" data-lon="{{ peak.lon }}" data-alt="{{ peak.altitude }}" data-id="{{ peak.id }}"
+                                        data-bs-toggle="modal" data-bs-target="#myModal">
+                                    Informations
+                                </button>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-6">
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Informations</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="modal-peak-name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="modal-peak-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-peak-lat" class="col-form-label">Latitude:</label>
+                                <input type="text" class="form-control" id="modal-peak-lat">
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-peak-lon" class="col-form-label">Longitude:</label>
+                                <input type="text" class="form-control" id="modal-peak-lon">
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-peak-alt" class="col-form-label">Altitude:</label>
+                                <input type="text" class="form-control" id="modal-peak-alt">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="modal-peak-id">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="modal-save">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
