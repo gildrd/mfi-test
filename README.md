@@ -28,7 +28,7 @@ This app is using the latest LTS Symfony framework version. It comes with an Swa
 
 First, clone the git project:
 ```
-git clone gildrd/mfi-test
+git clone https://github.com/gildrd/mfi-test.git
 ```
 
 Next, once in your project directory, you have to build and up the docker containers:
